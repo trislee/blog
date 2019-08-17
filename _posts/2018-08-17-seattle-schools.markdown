@@ -55,14 +55,67 @@ for i, tract in enumerate(tracts):
     }
   )
 {% endhighlight %}
-The next step is some ugly code to coalesce the census data into a single pretty GeoDataFrame. You can read it on my GitHub, but I'm omitting it here for the sake of brevity. For fun, I've included some plots of population density by block for different ethnic backgrounds.
+The next step is some ugly code to coalesce the census data contained in ``tract_responses`` into a single pretty GeoDataFrame. You can read it on my GitHub, but I'm omitting it here for the sake of brevity. For fun, I've included some plots of population density by block for different ethnic backgrounds. These choropleths were very easy to generate using the GeoDataFrame ``plot()`` method. Blocks with zero population were set to the background color.
 
-<img align="left" src="/assets/img/posts/2018-08-17-seattle-schools/white.svg" width="300">
-<img align="center" src="/assets/img/posts/2018-08-17-seattle-schools/black.svg" width="300">
-<img align="right" src="/assets/img/posts/2018-08-17-seattle-schools/asian.svg" width="300">
+| [![White](/assets/img/posts/2018-08-17-seattle-schools/white.svg)](/assets/img/posts/2018-08-17-seattle-schools/white.svg)  | [![Black](/assets/img/posts/2018-08-17-seattle-schools/black.svg)](/assets/img/posts/2018-08-17-seattle-schools/black.svg) | [![Asian](/assets/img/posts/2018-08-17-seattle-schools/asian.svg)](/assets/img/posts/2018-08-17-seattle-schools/asian.svg) |
+|:---:|:---:|:---:|
+| White | Black | Asian |
 
-<!-- ![alt-text-1](/assets/img/posts/2018-08-17-seattle-schools/white.svg "White") ![alt-text-2](/assets/img/posts/2018-08-17-seattle-schools/asian.svg "Asian") ![alt-text-3](/assets/img/posts/2018-08-17-seattle-schools/black.svg "Black") -->
+Now that we have block-level demographic data organized nicely in a GeoDataFrame, the next step is to determine which blocks are included in a given school's attendance area boundary. We first download and extract the [attendance area boundaries][boundary-shapefiles]. An important attribute of a shapefile is its [coordinate reference system][crs] (CRS), which specifies how coordinates on a spherical surface are projected onto a flat surface. These CRS are often represented as *proj4* strings, such as the following, which is a nice Seattle-centered projection:
+{% highlight python %}
+SEATTLE_PROJ = "+proj=lcc +lat_1=47.5 +lat_2=48.73333333333333 +lat_0=47 +lon_0=-120.8333333333333 +x_0=500000.0000000002 +y_0=0 +datum=NAD83 +units=us-ft +no_defs "
+{% endhighlight %}
 
+We merge our block-level GeoDataFrame with out block-level demographic DataFrame, and convert it to the ``SEATTLE_PROJ`` CRS:
+
+{% highlight python %}
+block_gdf = block_gdf.merge(demog_data_df)
+block_gdf = block_gdf.to_crs(crs = SEATTLE_PROJ)
+{% endhighlight %}
+
+We also read-in the shapefile for the High School attendence area boundaries, convert to the ``SEATTLE_PROJ`` CRS, and remove extraneous columns:
+{% highlight python %}
+hs_gdf = gpd.read_file("path/to/highschool/boundary/shapefile.shp")
+hs_gdf = hs_gdf.to_crs(crs = SEATTLE_PROJ)
+hs_gdf = hs_gdf[['HS_ZONE', 'geometry']]
+{% endhighlight %}
+
+Now we loop over all school attendence area boundary geometries and all block geometries to see if the attendance area completely contains the block. To do this we employ the ``.contains()`` method for GeoPandas geometries. We store the data in a 2D boolean array of shape (number of schools, number of blocks), so that the $$i,j$$-th element is true if school boundary $$i$$ contains block $$j$$, and False otherwise:
+{% highlight python %}
+contains_shape = (hs_gdf.shape[0], block_gdf.shape[0])
+contains_arr = np.zeros(contains_shape, dtype = np.bool_)
+for i in range(contains_shape[0]):
+  for j in range(contains_shape[1]):
+    contains_arr[i, j] = hs_gdf.loc[i]['geometry'].contains(block_gdf.loc[j]['geometry'])
+{% endhighlight %}
+
+We can plot the blocks, colored by containing school, along with the assignment area shapefiles, to make sure we performed the previous steps correctly:
+
+| [![Elementary School Map](/assets/img/posts/2018-08-17-seattle-schools/blocks_by_geozone_ES.svg)](/assets/img/posts/2018-08-17-seattle-schools/blocks_by_geozone_ES.svg)  | [![Middle School Map](/assets/img/posts/2018-08-17-seattle-schools/blocks_by_geozone_MS.svg)](/assets/img/posts/2018-08-17-seattle-schools/blocks_by_geozone_MS.svg) | [![High School Map](/assets/img/posts/2018-08-17-seattle-schools/blocks_by_geozone_HS.svg)](/assets/img/posts/2018-08-17-seattle-schools/blocks_by_geozone_HS.svg) |
+|:---:|:---:|:---:|
+| Elementary School | Middle School | High School |
+
+The last step is to calculate the average population for the contained blocks for each school, for each race.
+{% highlight python %}
+school_list = list(hs_gdf[f'{school_level_code}_ZONE'])
+race_list = list(block_gdf)[3:]
+
+race_by_school = np.zeros((len(school_list), len(race_list)))
+for i, s in enumerate(school_list):
+  race_by_school[i] = np.mean(block_gdf.loc[contains_arr[i]])[2:]
+
+rbs_df = pd.DataFrame(race_by_school)
+rbs_df.columns = race_list
+rbs_df.insert(0, 'school', school_list)
+
+rbs_sort = race_by_school[np.flipud(np.array(np.argsort(rbs_df['white'])))]
+{% endhighlight %}
+
+Finally we can plot the demographic data by school, as shown below:
+
+| [![Elementary School Demographics](/assets/img/posts/2018-08-17-seattle-schools/demographics_by_school_geozone_ES.svg)](/assets/img/posts/2018-08-17-seattle-schools/demographics_by_school_geozone_ES.svg)  | [![Middle School Demographics](/assets/img/posts/2018-08-17-seattle-schools/demographics_by_school_geozone_MS.svg)](/assets/img/posts/2018-08-17-seattle-schools/demographics_by_school_geozone_MS.svg)  | [![High School Demographics](/assets/img/posts/2018-08-17-seattle-schools/demographics_by_school_geozone_HS.svg)](/assets/img/posts/2018-08-17-seattle-schools/demographics_by_school_geozone_HS.svg) | [![High School Demographics](/assets/img/posts/2018-08-17-seattle-schools/demographics_by_school_legend.svg)](/assets/img/posts/2018-08-17-seattle-schools/demographics_by_school_legend.svg)
+|:---:|:---:|:---:|:---:|
+| Elementary School | Middle School | High School |  |
 
 [assignment-plan]: https://www.seattleschools.org/UserFiles/Servers/Server_543/File/District/Departments/Enrollment%20Planning/Student%20Assignment%20Plan/New%20Student%20Assignment%20Plan.pdf
 [census-blocks-download]: http://data-seattlecitygis.opendata.arcgis.com/datasets/38105e262d9441b59b2dde020cb02b40_13.zip
@@ -71,3 +124,5 @@ The next step is some ugly code to coalesce the census data into a single pretty
 [census-key]: https://api.census.gov/data/key_signup.html
 [census-variables]: https://api.census.gov/data/2010/dec/sf1/variables.html
 [hispanic-origin]: https://www.census.gov/prod/cen2010/briefs/c2010br-02.pdf
+[boundary-shapefiles]: https://www.seattleschools.org/UserFiles/Servers/Server_543/File/District/Departments/Enrollment%20Planning/Maps/gisdata/SPS_AttendanceAreasAndSchools_Shapefiles_2019_2020.zip
+[crs]: http://geopandas.org/projections.html
