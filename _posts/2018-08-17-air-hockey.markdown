@@ -106,7 +106,7 @@ An algorithm to compute the ``bounceScore`` function is shown below. I originall
 \end{algorithm}
 " %}
 
-Implementing these algorithms requires addressing a few numerical issues related to avoiding the asymptotic behavior of $$\tan \theta$$ and and $$\frac{1}{\tan \theta}$$ at $$\theta = \pm \frac{\pi}{2}$$ and $$\theta = \pi$$ respectively, but I'm neglecting that here in order to keep the algorithms simple. You can look at my code on GitHub if you're curious.
+Implementing these algorithms requires addressing a few numerical issues related to avoiding the asymptotic behavior of $$\tan \theta$$ and and $$\frac{1}{\tan \theta}$$ at $$\theta = \pm \frac{\pi}{2}$$ and $$\theta = \pi$$ respectively, but I'm neglecting that here in order to keep the algorithms simple. You can look at my code on [GitHub][github-script] if you're curious.
 
 The goal width $$w$$ is an important parameter for the system. On one extreme with $$w=0$$, all shot angles for all locations never make it into a goal, so bounceScore is always zero. On the other extreme with $$w=s_x$$, any $$\theta_0$$ between $$-\frac{\pi}{2}$$ and $$+\frac{\pi}{2}$$ yields a positive bounceScore and any $$\theta_0$$ between $$\frac{\pi}{2}$$ and $$\frac{3 \pi}{2}$$ yields a negative bounceScore. Both of these extremes are boring, but the values of $$w$$ between 0 and $$s_x$$ produce interesting results.
 
@@ -136,3 +136,4 @@ The video below shows three different views of a phase space slice with the $$\f
 [reg-air-hockey]: https://gametableplanet.com/regulation-air-hockey-table-dimensions/
 [build-air-hockey]: https://www.instructables.com/id/Air-Hockey-Table-2/
 [f2py]: https://docs.scipy.org/doc/numpy/f2py/
+[github-script]: https://github.com/trislee/air_hockey/blob/master/functions.f90

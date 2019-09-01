@@ -55,7 +55,7 @@ for i, tract in enumerate(tracts):
     }
   )
 {% endhighlight %}
-The next step is some ugly code to coalesce the census data contained in ``tract_responses`` into a single pretty GeoDataFrame. You can read it on my GitHub, but I'm omitting it here for the sake of brevity. For fun, I've included some plots of population density by block for different ethnic backgrounds. These choropleths were very easy to generate using the GeoDataFrame ``plot()`` method. Blocks with zero population were set to the background color.
+The next step is some ugly code to coalesce the census data contained in ``tract_responses`` into a single pretty GeoDataFrame. You can read it on [my GitHub][github-seattle], but I'm omitting it here for the sake of brevity. For fun, I've included some plots of population density by block for different ethnic backgrounds. These choropleths were very easy to generate using the GeoDataFrame ``plot()`` method. Blocks with zero population were set to the background color.
 
 | [![White](/assets/img/posts/2018-08-17-seattle-schools/white.svg)](/assets/img/posts/2018-08-17-seattle-schools/white.svg)  | [![Black](/assets/img/posts/2018-08-17-seattle-schools/black.svg)](/assets/img/posts/2018-08-17-seattle-schools/black.svg) | [![Asian](/assets/img/posts/2018-08-17-seattle-schools/asian.svg)](/assets/img/posts/2018-08-17-seattle-schools/asian.svg) |
 |:---:|:---:|:---:|
@@ -126,3 +126,4 @@ Finally we can plot the demographic data by school, as shown below:
 [hispanic-origin]: https://www.census.gov/prod/cen2010/briefs/c2010br-02.pdf
 [boundary-shapefiles]: https://www.seattleschools.org/UserFiles/Servers/Server_543/File/District/Departments/Enrollment%20Planning/Maps/gisdata/SPS_AttendanceAreasAndSchools_Shapefiles_2019_2020.zip
 [crs]: http://geopandas.org/projections.html
+[github-seattle]: https://github.com/trislee/seattle_schools_demographics/blob/master/block_data_plots_geopandas.py
