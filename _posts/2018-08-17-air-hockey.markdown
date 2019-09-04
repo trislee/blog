@@ -3,7 +3,7 @@ layout: post
 title: Air Hockey Phase Space
 date: 2018-08-17 01:47:20 -0600
 description: You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. # Add post description (optional)
-img:  posts/2018-08-17-air-hockey/cover.png # Add image post (optional)
+img:  posts/2018-08-17-air-hockey/cover.png
 tags: [Blog, Chaos]
 author: # Add name author (optional)
 ---
@@ -69,9 +69,9 @@ which can be solved for the intercepts at $$x=0$$, $$x=s_y$$, $$y=0$$, or $$y=s_
 
 The animation to the left shows the paths a puck takes for a series of angles, when its initial location is the center of the table. Small changes in $$\theta$$ can result in significant changes to the end state of the puck, as evidenced by the rapidly changing lines. This sensitive dependence on initial conditions is a hallmark of chaotic systems and suggests that the behavior or the air hockey table system is more complicated than its simple geometry suggests. In practical terms, that means that we can probably use this system to generate some cool looking plots!
 
-In order to study the phase space of the air hockey table in a more systematic way, we define a new function, ``bounceScore``, which quantifies how "good" a single shot is for a given initial location and shot angle, that is based on the number of bounces the puck engages in before entering into one of the two goals. To distinguish between the two goals and maintain continuity, we define the function such that a value of -1 indicates the puck went into your goal before the first bounce, a value of 1 indicates the puck went into your opponent's goal before the first bounce, and a value of 0 indicates the puck did not end up in either goal after a set number of bounces.
+In order to study the phase space of the air hockey table in a more systematic way, we define a new function, *bounceScore*, which quantifies how "good" a single shot is for a given initial location and shot angle, that is based on the number of bounces the puck engages in before entering into one of the two goals. To distinguish between the two goals and maintain continuity, we define the function such that a value of -1 indicates the puck went into your goal before the first bounce, a value of 1 indicates the puck went into your opponent's goal before the first bounce, and a value of 0 indicates the puck did not end up in either goal after a set number of bounces.
 
-An algorithm to compute the ``bounceScore`` function is shown below. I originally implemented it in Python, but that was too slow for my liking, so I later switched to Fortran. A lot of people seem to think Fortran is a dead language, but I like using it for high-performance applications because of its native support for array operations, ease of parallelization using OpenMP/MPI, and interfacabiliy with Python through [f2py][f2py].
+An algorithm to compute the *bounceScore* function is shown below. I originally implemented it in Python, but that was too slow for my liking, so I later switched to Fortran. A lot of people seem to think Fortran is a dead language, but I like using it for high-performance applications because of its native support for array operations, ease of parallelization using OpenMP/MPI, and interfaceability with Python through [f2py][f2py].
 
 {% include pseudocode.html id="2" code="
 \begin{algorithm}
@@ -108,9 +108,9 @@ An algorithm to compute the ``bounceScore`` function is shown below. I originall
 
 Implementing these algorithms requires addressing a few numerical issues related to avoiding the asymptotic behavior of $$\tan \theta$$ and and $$\frac{1}{\tan \theta}$$ at $$\theta = \pm \frac{\pi}{2}$$ and $$\theta = \pi$$ respectively, but I'm neglecting that here in order to keep the algorithms simple. You can look at my code on [GitHub][github-script] if you're curious.
 
-The goal width $$w$$ is an important parameter for the system. On one extreme with $$w=0$$, all shot angles for all locations never make it into a goal, so bounceScore is always zero. On the other extreme with $$w=s_x$$, any $$\theta_0$$ between $$-\frac{\pi}{2}$$ and $$+\frac{\pi}{2}$$ yields a positive bounceScore and any $$\theta_0$$ between $$\frac{\pi}{2}$$ and $$\frac{3 \pi}{2}$$ yields a negative bounceScore. Both of these extremes are boring, but the values of $$w$$ between 0 and $$s_x$$ produce interesting results.
+The goal width $$w$$ is an important parameter for the system. On one extreme with $$w=0$$, all shot angles for all locations never make it into a goal, so bounceScore is always zero. On the other extreme with $$w=s_x$$, any $$\theta_0$$ between $$-\frac{\pi}{2}$$ and $$+\frac{\pi}{2}$$ yields a positive *bounceScore* and any $$\theta_0$$ between $$\frac{\pi}{2}$$ and $$\frac{3 \pi}{2}$$ yields a negative bounceScore. Both of these extremes are boring, but the values of $$w$$ between 0 and $$s_x$$ produce interesting results.
 
-The video below shows the bounceScore at all locations, averaged over all angles, as $$w$$ loops between 0 and $$s_x$$, i.e. each pixel represents a particular location on the table. I rotated the table by 90 degrees because it fit better on the page that way. The color indicates which of the two goals the puck is likeliest to end up in, with blue indicating your goal, and red indicating your opponent's goal. For visualization purposes, I raised the bounceScore to the power of 0.25 to increase the contrast, but that doesn't affect the underlying pattern of blue and red regions.
+The video below shows the *bounceScore* at all locations, averaged over all angles, as $$w$$ loops between 0 and $$s_x$$, i.e. each pixel represents a particular location on the table. I rotated the table by 90 degrees because it fit better on the page that way. The color indicates which of the two goals the puck is likeliest to end up in, with blue indicating your goal, and red indicating your opponent's goal. For visualization purposes, I raised the bounceScore to the power of 0.25 to increase the contrast, but that doesn't affect the underlying pattern of blue and red regions.
 
 <div class="myvideo">
    <video  style="display:block; width:100%; height:auto;" autoplay controls loop="loop">

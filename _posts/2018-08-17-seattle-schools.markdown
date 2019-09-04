@@ -25,7 +25,7 @@ tracts = set([k[5:11] for k in blocks_gdf['GEOID10']])
 tracts = sorted(list(tracts))
 {% endhighlight %}
 
-Now we prepare the census queries. I create dicts of census variables and their corresponding descriptions, which I got from a very long list of the [2010 Census variables][census-variables]. The Census records Hispanic heritage [differently][hispanic-origin] than other ethic backgrounds, so for simplicity I'm not icluding that variable.
+Now we prepare the census queries. I create dicts of census variables and their corresponding descriptions, which I got from a very long list of the [2010 Census variables][census-variables]. The Census records Hispanic heritage [differently][hispanic-origin] than other ethic backgrounds, so for simplicity I'm not including that variable.
 {% highlight python %}
 CODE_DICT = {
   'P001001' : 'all',
@@ -73,14 +73,14 @@ block_gdf = block_gdf.merge(demog_data_df)
 block_gdf = block_gdf.to_crs(crs = SEATTLE_PROJ)
 {% endhighlight %}
 
-We also read-in the shapefile for the High School attendence area boundaries, convert to the ``SEATTLE_PROJ`` CRS, and remove extraneous columns:
+We also read-in the shapefile for the High School attendance area boundaries, convert to the ``SEATTLE_PROJ`` CRS, and remove extraneous columns:
 {% highlight python %}
 hs_gdf = gpd.read_file("path/to/highschool/boundary/shapefile.shp")
 hs_gdf = hs_gdf.to_crs(crs = SEATTLE_PROJ)
 hs_gdf = hs_gdf[['HS_ZONE', 'geometry']]
 {% endhighlight %}
 
-Now we loop over all school attendence area boundary geometries and all block geometries to see if the attendance area completely contains the block. To do this we employ the ``.contains()`` method for GeoPandas geometries. We store the data in a 2D boolean array of shape (number of schools, number of blocks), so that the $$i,j$$-th element is true if school boundary $$i$$ contains block $$j$$, and False otherwise:
+Now we loop over all school attendance area boundary geometries and all block geometries to see if the attendance area completely contains the block. To do this we employ the ``.contains()`` method for GeoPandas geometries. We store the data in a 2D boolean array of shape (number of schools, number of blocks), so that the $$i,j$$-th element is true if school boundary $$i$$ contains block $$j$$, and False otherwise:
 {% highlight python %}
 contains_shape = (hs_gdf.shape[0], block_gdf.shape[0])
 contains_arr = np.zeros(contains_shape, dtype = np.bool_)

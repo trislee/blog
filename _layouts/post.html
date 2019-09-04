@@ -36,6 +36,9 @@ layout: default
   </article>
   {% include search.html %}
   {% include footer.html %}
+  {% if page.slider %}
+    {% include slider.html height="50" unit="%" transition="slide" duration="7" %}
+  {% endif %}
 </div>
 <!-- Mathjax Support -->
 <script type="text/javascript" async
