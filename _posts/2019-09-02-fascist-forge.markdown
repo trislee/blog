@@ -95,11 +95,6 @@ Many users claim their age to be a Nazi-related reference or joke, some worth me
 * 1488 (6 users): another [Nazi reference][adl-1488]
 * 333 (4 users): an apparent reference to [Liber 333][goodreads], a book by the satanist group [Tempel ov Blood][medium-tob] loosely affiliated with Atomwaffen
 
-On a relatively lighter note, a few of the more absurd shitposts I found on FF:
-* User number 22, named "Al-Masih ad-Dajjal" (the Islamic equivalent of the antichrist), a Canadian "Salafi National Socialist" whose goal in joining FF was "To find other Salafi Fascists so that we may unite and crush the kuffar Inshallah", lists his skills as "Killing niggers MAGA", and "reverted to Islam for it's sinister qualities". He was quickly banned, with one user replying to his introduction post "Any white man who converts to Islam is a traitor to his race...ditch that sand nigger religion and than you can join your white brothers here in eternal Valhalla".
-* User number 267, named "Senpai", a East-Asian Buddhist living in Sweden that follows the "Juche" ideology and had Kim Jong Un as his profile image. He was informed in replies to his introduction post that FF "is a forum for Aryans" and was promptly banned.
-* User number 458, a Christian Marxist from Nevada whose interests are "Pepe", skills are "Street fighting", and is formerly from "Kekistan".
-
 Finally, I've made an image slider of every unique user profile and cover image, using [this utility][ideal-image-slider].
 Scrolling through it is a good way to get a sense of the vibe and aesthetics of the modern neo-Nazi movement.
 
