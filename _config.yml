@@ -50,3 +50,9 @@ exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "package-l
 
 # Code block syntax highlighting
 highlighter: rouge
+
+# If you want to link only specific pages in your header, uncomment
+# this and add the path to the pages in order as they should show up
+# header_pages:
+# - _pages/about.html
+# - _pages/tags.html

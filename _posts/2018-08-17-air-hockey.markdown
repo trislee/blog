@@ -30,7 +30,7 @@ x &= \tan \theta (y_0 - y) + x_0,
 \end{aligned}
 $$
 
-which can be solved for the intercepts at $$x=0$$, $$x=s_y$$, $$y=0$$, or $$y=s_y$$, depending on the value of $$\theta$$. The algorithm for the function ``nextPoint``, which computes the location of the next intersection point of the puck with the border of the table, as well as the rebound angle, is displayed below:
+which can be solved for the intercepts at $$x=0$$, $$x=s_y$$, $$y=0$$, or $$y=s_y$$, depending on the value of $$\theta$$. The algorithm for the function *nextPoint*, which computes the location of the next intersection point of the puck with the border of the table, as well as the rebound angle, is displayed below:
 
 {% include pseudocode.html id="1" code="
 \begin{algorithm}
