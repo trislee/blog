@@ -1,13 +1,12 @@
 ---
 layout: post
 title: Air Hockey Phase Space
-date: 2018-08-17 01:47:20 -0600
-description: You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. # Add post description (optional)
-img:  posts/2018-08-17-air-hockey/cover.png
+date: 2019-08-17 01:47:20 -0600
+description: Simulation and analysis of the win probability for an air hockey table
+img:  posts/2019-08-17-air-hockey/cover.png
 tags: [Blog, Chaos]
-author: # Add name author (optional)
 ---
-<img align="right" width="250" src="/assets/img/posts/2018-08-17-air-hockey/air_hockey_diagram.svg">
+<img align="right" width="250" src="/assets/img/posts/2019-08-17-air-hockey/air_hockey_diagram.svg">
 
 After a night out at a barcade a few years back, I came home and began to think about the phase space of an air hockey game. To be precise, given a position on the table $$(x_0, y_0)$$ and a velocity vector with direction specified by an angle $$\theta$$, will the puck go into my goal, my opponent's goal, or just bounce between walls forever? For simplicity, I'm assuming a perfectly frictionless table surface and perfectly elastic collisions. A diagram of the idealized air hockey table, with a coordinate system and relevant variables and parameters, is shown to the right. These parameters are:
 
@@ -65,7 +64,7 @@ which can be solved for the intercepts at $$x=0$$, $$x=s_y$$, $$y=0$$, or $$y=s_
 \end{algorithm}
 " %}
 
-<img align="right" src="/assets/img/posts/2018-08-17-air-hockey/air_hockey_animation.gif" width="300">
+<img align="right" src="/assets/img/posts/2019-08-17-air-hockey/air_hockey_animation.gif" width="300">
 
 The animation to the left shows the paths a puck takes for a series of angles, when its initial location is the center of the table. Small changes in $$\theta$$ can result in significant changes to the end state of the puck, as evidenced by the rapidly changing lines. This sensitive dependence on initial conditions is a hallmark of chaotic systems and suggests that the behavior or the air hockey table system is more complicated than its simple geometry suggests. In practical terms, that means that we can probably use this system to generate some cool looking plots!
 
@@ -114,9 +113,9 @@ The video below shows the *bounceScore* at all locations, averaged over all angl
 
 <div class="myvideo">
    <video  style="display:block; width:100%; height:auto;" autoplay controls loop="loop">
-       <source src="/assets/img/posts/2018-08-17-air-hockey/average_bouncescore.mp4" type="video/mp4" />
-       <source src="/assets/img/posts/2018-08-17-air-hockey/average_bouncescore.ogv" type="video/ogg" />
-       <source src="/assets/img/posts/2018-08-17-air-hockey/average_bouncescore.webm"  type="video/webm"  />
+       <source src="/assets/img/posts/2019-08-17-air-hockey/average_bouncescore.mp4" type="video/mp4" />
+       <source src="/assets/img/posts/2019-08-17-air-hockey/average_bouncescore.ogv" type="video/ogg" />
+       <source src="/assets/img/posts/2019-08-17-air-hockey/average_bouncescore.webm"  type="video/webm"  />
    </video>
 </div>
 
@@ -126,9 +125,9 @@ The video below shows three different views of a phase space slice with the $$\f
 
 <div class="myvideo">
    <video  style="display:block; width:100%; height:auto;" autoplay controls loop="loop">
-       <source src="/assets/img/posts/2018-08-17-air-hockey/slice_plot.mp4" type="video/mp4" />
-       <source src="/assets/img/posts/2018-08-17-air-hockey/slice_plot.ogv" type="video/ogg" />
-       <source src="/assets/img/posts/2018-08-17-air-hockey/slice_plot.webm"  type="video/webm"  />
+       <source src="/assets/img/posts/2019-08-17-air-hockey/slice_plot.mp4" type="video/mp4" />
+       <source src="/assets/img/posts/2019-08-17-air-hockey/slice_plot.ogv" type="video/ogg" />
+       <source src="/assets/img/posts/2019-08-17-air-hockey/slice_plot.webm"  type="video/webm"  />
    </video>
 </div>
 

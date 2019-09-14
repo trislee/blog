@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  Seattle School Demographics
-date:   2017-08-25 13:32:20 +0300
-description: You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. # Add post description (optional)
-img: diversity.svg # Add image post (optional)
+date:   2019-08-17 13:32:20 +0300
+description: Demographic analysis of the Seattle Schools student assignment plan
+img: posts/2019-08-17-seattle-schools/diversity.jpg
 tags: [Blog, Geospatial]
 ---
 In my freshman year of high school, my school district released a [new student assignment plan][assignment-plan], based on geography rather than choice, as had been the previous policy. I remember thinking that it would be interesting to study how the demographics of Seattle mapped onto the demographics of individual schools, but at the time I didn't know enough about GIS and data science to do anything about it. Well now I do, so here's an attempt.
@@ -57,7 +57,7 @@ for i, tract in enumerate(tracts):
 {% endhighlight %}
 The next step is some ugly code to coalesce the census data contained in ``tract_responses`` into a single pretty GeoDataFrame. You can read it on [my GitHub][github-seattle], but I'm omitting it here for the sake of brevity. For fun, I've included some plots of population density by block for different ethnic backgrounds. These choropleths were very easy to generate using the GeoDataFrame ``plot()`` method. Blocks with zero population were set to the background color.
 
-| [![White](/assets/img/posts/2018-08-17-seattle-schools/white.svg)](/assets/img/posts/2018-08-17-seattle-schools/white.svg)  | [![Black](/assets/img/posts/2018-08-17-seattle-schools/black.svg)](/assets/img/posts/2018-08-17-seattle-schools/black.svg) | [![Asian](/assets/img/posts/2018-08-17-seattle-schools/asian.svg)](/assets/img/posts/2018-08-17-seattle-schools/asian.svg) |
+| [![White](/assets/img/posts/2019-08-17-seattle-schools/white.svg)](/assets/img/posts/2019-08-17-seattle-schools/white.svg)  | [![Black](/assets/img/posts/2019-08-17-seattle-schools/black.svg)](/assets/img/posts/2019-08-17-seattle-schools/black.svg) | [![Asian](/assets/img/posts/2019-08-17-seattle-schools/asian.svg)](/assets/img/posts/2019-08-17-seattle-schools/asian.svg) |
 |:---:|:---:|:---:|
 | White | Black | Asian |
 
@@ -91,7 +91,7 @@ for i in range(contains_shape[0]):
 
 We can plot the blocks, colored by containing school, along with the assignment area shapefiles, to make sure we performed the previous steps correctly:
 
-| [![Elementary School Map](/assets/img/posts/2018-08-17-seattle-schools/blocks_by_geozone_ES.svg)](/assets/img/posts/2018-08-17-seattle-schools/blocks_by_geozone_ES.svg)  | [![Middle School Map](/assets/img/posts/2018-08-17-seattle-schools/blocks_by_geozone_MS.svg)](/assets/img/posts/2018-08-17-seattle-schools/blocks_by_geozone_MS.svg) | [![High School Map](/assets/img/posts/2018-08-17-seattle-schools/blocks_by_geozone_HS.svg)](/assets/img/posts/2018-08-17-seattle-schools/blocks_by_geozone_HS.svg) |
+| [![Elementary School Map](/assets/img/posts/2019-08-17-seattle-schools/blocks_by_geozone_ES.svg)](/assets/img/posts/2019-08-17-seattle-schools/blocks_by_geozone_ES.svg)  | [![Middle School Map](/assets/img/posts/2019-08-17-seattle-schools/blocks_by_geozone_MS.svg)](/assets/img/posts/2019-08-17-seattle-schools/blocks_by_geozone_MS.svg) | [![High School Map](/assets/img/posts/2019-08-17-seattle-schools/blocks_by_geozone_HS.svg)](/assets/img/posts/2019-08-17-seattle-schools/blocks_by_geozone_HS.svg) |
 |:---:|:---:|:---:|
 | Elementary School | Middle School | High School |
 
@@ -113,7 +113,7 @@ rbs_sort = race_by_school[np.flipud(np.array(np.argsort(rbs_df['white'])))]
 
 Finally we can plot the demographic data by school, as shown below:
 
-| [![Elementary School Demographics](/assets/img/posts/2018-08-17-seattle-schools/demographics_by_school_geozone_ES.svg)](/assets/img/posts/2018-08-17-seattle-schools/demographics_by_school_geozone_ES.svg)  | [![Middle School Demographics](/assets/img/posts/2018-08-17-seattle-schools/demographics_by_school_geozone_MS.svg)](/assets/img/posts/2018-08-17-seattle-schools/demographics_by_school_geozone_MS.svg)  | [![High School Demographics](/assets/img/posts/2018-08-17-seattle-schools/demographics_by_school_geozone_HS.svg)](/assets/img/posts/2018-08-17-seattle-schools/demographics_by_school_geozone_HS.svg) | [![High School Demographics](/assets/img/posts/2018-08-17-seattle-schools/demographics_by_school_legend.svg)](/assets/img/posts/2018-08-17-seattle-schools/demographics_by_school_legend.svg)
+| [![Elementary School Demographics](/assets/img/posts/2019-08-17-seattle-schools/demographics_by_school_geozone_ES.svg)](/assets/img/posts/2019-08-17-seattle-schools/demographics_by_school_geozone_ES.svg)  | [![Middle School Demographics](/assets/img/posts/2019-08-17-seattle-schools/demographics_by_school_geozone_MS.svg)](/assets/img/posts/2019-08-17-seattle-schools/demographics_by_school_geozone_MS.svg)  | [![High School Demographics](/assets/img/posts/2019-08-17-seattle-schools/demographics_by_school_geozone_HS.svg)](/assets/img/posts/2019-08-17-seattle-schools/demographics_by_school_geozone_HS.svg) | [![High School Demographics](/assets/img/posts/2019-08-17-seattle-schools/demographics_by_school_legend.svg)](/assets/img/posts/2019-08-17-seattle-schools/demographics_by_school_legend.svg)
 |:---:|:---:|:---:|:---:|
 | Elementary School | Middle School | High School |  |
 

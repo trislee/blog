@@ -135,18 +135,96 @@ The resulting visualization is shown below. I think it looks a lot better, both 
 The graph shows that there is a relatively small group of users who are responsible for a large percentage of all reactions.
 The table below shows the top 10 users:
 
-**Username**    | **Likes Received**    | **Likes Given**
---------------- | --------------------- | ---------------
-Nox Aeternus    | 331                   | 312
-Mathias         | 216                   | 256
-Scythian        | 192                   | 262
-Yorkie          | 138                   | 194
-Pugna           | 130                   | 146
-Reaper          | 116                   | 156
-D. Aquillius    | 94                    | 110
-Dakov           | 144                   | 49
-Pestilence      | 117                   | 76
-Gigaboltro      | 101                   | 90
+<html>
+<head>
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #DE0000;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<table id="customers">
+  <tr>
+    <th>Username</th>
+    <th>Likes Received</th>
+    <th>Likes Given</th>
+  </tr>
+  <tr>
+    <td>Nox Aeternus</td>
+    <td>331</td>
+    <td>312</td>
+  </tr>
+  <tr>
+    <td>Mathias</td>
+    <td>216</td>
+    <td>256</td>
+  </tr>
+  <tr>
+    <td>Scythian</td>
+    <td>192</td>
+    <td>262</td>
+  </tr>
+  <tr>
+    <td>Yorkie</td>
+    <td>138</td>
+    <td>194</td>
+  </tr>
+  <tr>
+    <td>Pugna</td>
+    <td>130</td>
+    <td>146</td>
+  </tr>
+  <tr>
+    <td>Reaper</td>
+    <td>116</td>
+    <td>156</td>
+  </tr>
+  <tr>
+    <td>D. Aquillius</td>
+    <td>94</td>
+    <td>110</td>
+  </tr>
+  <tr>
+    <td>Dakov</td>
+    <td>144</td>
+    <td>49</td>
+  </tr>
+  <tr>
+    <td>Pestilence</td>
+    <td>117</td>
+    <td>76</td>
+  </tr>
+  <tr>
+    <td>Gigaboltro</td>
+    <td>101</td>
+    <td>90</td>
+  </tr>
+</table>
+
+</body>
+</html>
+
 
 [ff]: https://fascistforge.com
 [fascist-forge-scraping]: {{ site.baseurl }}{% link _posts/2019-09-02-fascist-forge.markdown %}

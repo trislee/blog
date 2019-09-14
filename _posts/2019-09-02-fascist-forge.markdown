@@ -13,7 +13,7 @@ I hope this information can be useful to ordinary citizens, anti-fascist activis
 
 I recently became aware of the website [Fascist Forge][ff], a militant neo-Nazi forum.
 Their *About Us* states:
->Fascist Forge was created in the spring of 2018 to provide real world Fascists with an online platform to make connections, share resources, organize, and ultimately further the Fascist Worldview. The purity of our worldview is our highest ideal and we have zero tolerance for anything that opposes it. The site has purposely been modeled after Ironmarch.org, which prior to its shutdown was the foremost Fascist website in the world. Our aim is to continue where they left off.
+>Fascist Forge was created in the spring of 2019 to provide real world Fascists with an online platform to make connections, share resources, organize, and ultimately further the Fascist Worldview. The purity of our worldview is our highest ideal and we have zero tolerance for anything that opposes it. The site has purposely been modeled after Ironmarch.org, which prior to its shutdown was the foremost Fascist website in the world. Our aim is to continue where they left off.
 
 There is some good information about the modern militant neo-Nazi movement from [these][splc] [three][icct] [articles][hanrahan], but I couldn't find a lot of information, particularly quantitative information, on Fascist Forge (abbreviated as FF from here on out), so I figured I'd collect some data on my own.
 
@@ -105,7 +105,7 @@ Some of the most common visual tropes in the imagery were [Black Suns][black-sun
 This is a preliminary post, keep an eye out for updates and more in-depth analysis.
 
 [ff]: https://fascistforge.com
-[splc]: https://www.splcenter.org/hatewatch/2018/02/22/atomwaffen-and-siege-parallax-how-one-neo-nazi%E2%80%99s-life%E2%80%99s-work-fueling-younger-generation
+[splc]: https://www.splcenter.org/hatewatch/2019/02/22/atomwaffen-and-siege-parallax-how-one-neo-nazi%E2%80%99s-life%E2%80%99s-work-fueling-younger-generation
 [icct]: https://icct.nl/publication/siege-the-atomwaffen-division-and-rising-far-right-terrorism-in-the-united-states/
 [hanrahan]: https://medium.com/@Hanrahan/atomwaffendown-c662cb4d1aa6
 [selenium]: https://selenium-python.readthedocs.io/
