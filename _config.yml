@@ -1,4 +1,4 @@
-title: My personal blog - Tristan Lee
+title: Tristan Lee
 email: trislee@protonmail.com
 description: > # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
@@ -7,10 +7,12 @@ description: > # this means to ignore newlines until "baseurl:"
 permalink: ':title/'
 baseurl: '' # the subpath of your site, e.g. /blog
 url: 'https://trislee.com'
+git_address: https://github.com/trislee
+
 # Author settings
 author: Tristan Lee # add your name
 author-pic: tristan_face.png
-about-author: My name is Tristan Lee, I'm a computational physicist who's into data science. This is my blog that I use to share physics simulations and data analyses, with a focus towards making interesting and beautiful visualizations. I'll also be using this platform to share datasets and analyses of alt-right and fascist-affiliated websites, organizations, and leaders. Don't hesitate to get in touch if you have any questions about any of my posts, or if you just want to chat about something.
+about-author: My name is Tristan Lee, I'm a computational physicist who's into data science. This is my blog that I use to share physics simulations and data analyses, with a focus towards making interesting and beautiful visualizations.
 
 # Contact links
 email: trislee@protonmail.com

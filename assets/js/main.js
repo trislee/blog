@@ -1,46 +1,33 @@
 $(function () {
-  // Cache variables for increased performance on devices with slow CPUs.
-  var flexContainer = $('div.flex-container')
-  var searchBox = $('.search-box')
-  var searchClose = $('.search-icon-close')
-  var searchInput = $('#search-input')
 
-  // Menu Settings
-  $('.menu-icon, .menu-icon-close').click(function (e) {
-    e.preventDefault()
-    e.stopPropagation()
-    flexContainer.toggleClass('active')
-  })
+  function initSearchBox() {
+    var pages = new Bloodhound({
+      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title'),
+      // datumTokenizer: Bloodhound.tokenizers.whitespace,
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
 
-  // Click outside of menu to close it
-  flexContainer.click(function (e) {
-    if (flexContainer.hasClass('active') && e.target.tagName !== 'A') {
-      flexContainer.removeClass('active')
-    }
-  })
+      prefetch: baseurl + '/search.json'
+    });
 
-  // Press Escape key to close menu
-  $(window).keydown(function (e) {
-    if (e.key === 'Escape') {
-      if (flexContainer.hasClass('active')) {
-        flexContainer.removeClass('active')
-      } else if (searchBox.hasClass('search-active')) {
-        searchBox.removeClass('search-active')
-      }
-    }
-  })
+    $('#search-box').typeahead({
+      minLength: 0,
+      highlight: true
+    }, {
+        name: 'pages',
+        display: 'title',
+        source: pages
+      });
 
-  // Search Settings
-  $('.search-icon').click(function (e) {
-    e.preventDefault()
-    searchBox.toggleClass('search-active')
-    searchInput.focus()
+    $('#search-box').bind('typeahead:select', function (ev, suggestion) {
+      window.location.href = suggestion.url;
+    });
+  }
 
-    if (searchBox.hasClass('search-active')) {
-      searchClose.click(function (e) {
-    		e.preventDefault()
-    		searchBox.removeClass('search-active')
-    	})
-    }
-  })
-})
+  function styleContentToMD() {
+    $('#markdown-content-container table').addClass('table');
+    $('#markdown-content-container img').addClass('img-responsive');
+  }
+
+  initSearchBox();
+  styleContentToMD();
+});

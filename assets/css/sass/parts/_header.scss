@@ -61,21 +61,5 @@
   text-align: left;
 }
 
-.search-icon-container {
-  width: 25%;
-  text-align: right;
-}
-
 .menu-icon,
 .menu-icon-close,
-.search-icon a,
-.search-icon-close {
-  cursor: pointer;
-  font-size: 18px;
-  color: $dark-purple;
-  transition: all .4s;
-  padding: 10px;
-  &:hover {
-    opacity: .8;
-  }
-}

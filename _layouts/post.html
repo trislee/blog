@@ -2,7 +2,6 @@
 layout: default
 ---
 <div class="flex-container">
-  {% include header.html %}
   <article class="article-page">
     <div class="page-image">
       <div class="cover-image" style="background: url({{"/assets/img/" | prepend: site.baseurl | append : page.img}}) center no-repeat; background-size: cover;"></div>
@@ -34,7 +33,6 @@ layout: default
       </div>
     </div> <!-- End Wrapper -->
   </article>
-  {% include search.html %}
   {% include footer.html %}
   {% if page.slider %}
     {% include slider.html height="50" unit="%" transition="slide" duration="7" %}
