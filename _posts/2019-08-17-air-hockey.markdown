@@ -4,7 +4,7 @@ title: Air Hockey Phase Space
 date: 2019-08-17 01:47:20 -0600
 description: Simulation and analysis of the win probability for an air hockey table
 img:  posts/2019-08-17-air-hockey/cover.png
-tags: [Blog, Chaos]
+tags: [Geometry, Chaos]
 ---
 <img align="right" width="250" src="/assets/img/posts/2019-08-17-air-hockey/air_hockey_diagram.svg">
 

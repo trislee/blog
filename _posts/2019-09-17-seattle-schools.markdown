@@ -4,7 +4,7 @@ title:  Seattle School Demographics
 date:   2019-08-17 13:32:20 +0300
 description: Demographic analysis of the Seattle Schools student assignment plan
 img: posts/2019-08-17-seattle-schools/diversity.jpg
-tags: [Blog, Geospatial]
+tags: [Geospatial, Seattle]
 ---
 In my freshman year of high school, my school district released a [new student assignment plan][assignment-plan], based on geography rather than choice, as had been the previous policy. I remember thinking that it would be interesting to study how the demographics of Seattle mapped onto the demographics of individual schools, but at the time I didn't know enough about GIS and data science to do anything about it. Well now I do, so here's an attempt.
 

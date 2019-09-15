@@ -4,7 +4,7 @@ title:  Fascist Forge Reactions
 date:   2019-09-07 11:50:00 +0300
 description: Analyzing reaction data from a Nazi forum
 img: posts/2019-09-07-fascist-forge-reactions/fascist-forge-reactions_cover.png
-tags: [Blog, Anti-fascism]
+tags: [Anti-fascism, Fascist Forge]
 ---
 
 *This is the second post in a series focusing on the collection and analysis of data from a militant neo-Nazi website, [FascistForge.com][ff]. You can see the first installment [here][fascist-forge-scraping]*

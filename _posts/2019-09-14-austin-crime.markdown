@@ -4,7 +4,7 @@ title:  Austin Crime
 date:   2019-09-14 03:25:20 +0300
 description: Analyzing 16 years of Austin crime data
 img: posts/2019-09-14-austin-crime/datashader_by_category_black.png
-tags: [Blog, Geospatial]
+tags: [Geospatial, Austin]
 ---
 
 The City of Austin has a lot of data available, including a dataset of all 2.1 million reports filed by the Austin Police Department since 2003 that you can find [here][dataset].

@@ -4,7 +4,7 @@ title:  arXiv Harvesting
 date:   2019-09-01 20:53:20 +0300
 description: Downloading, formatting, and analyzing data from every single paper published on arXiv
 img: posts/2019-09-01-arxiv/cover.png
-tags: [Blog, Science]
+tags: [Science]
 ---
 
 Inspired by [this][mat2vec] cool paper, I wanted to analyze the metadata of a bunch of scientific journal articles.
