@@ -1559,7 +1559,7 @@ pre code {
     font-size: 24px;
   }
   .post-card-box li {
-    width: 100%;
+    width: 50%;
     margin-bottom: 20px;
   }
   .post-card-box li:last-child {
