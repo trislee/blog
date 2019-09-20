@@ -45,7 +45,10 @@ For the sake of brevity and because it's boring, I'm not including the code I us
 A visualization of the categories I chose and their constituent crimes can be seen below in the Sankey diagram, generated using the [Google Charts Service][google-charts] utility.
 To keep the visualization readable I only included crimes with more than 10,000 occurrences over the last 16 years.
 
+<div class="include-out">
 {% include interactive/austin_crime_sankey.html %}
+</div>
+
 
 After the previous step, we now have a DataFrame containing the location, day, year, and categorical crime code, for every incident corresponding to a crime included in my categories.
 Dropping uncategorized crimes from the dataset reduced the number of incidents from 2.1 million to 1.8 million, which is still still sufficient for cool data visualizations.
@@ -90,6 +93,7 @@ ds.utils.export_image(
   background = 'black')
 {% endhighlight %}
 
+{:.eqcol}
 | [![Visualization](/assets/img/posts/2019-09-14-austin-crime/datashader_all.png)](/assets/img/posts/2019-09-14-austin-crime/datashader_all.png)  | [![Legend](/assets/img/posts/2019-09-14-austin-crime/colorbar.png)](/assets/img/posts/2019-09-14-austin-crime/colorbar.png) |
 |:---:|:---:|
 | All crimes | Legend |
@@ -129,6 +133,7 @@ ds.utils.export_image(
 
 {% endhighlight %}
 
+{:.eqcol}
 | [![Visualization](/assets/img/posts/2019-09-14-austin-crime/datashader_by_category_black.png)](/assets/img/posts/2019-09-14-austin-crime/datashader_by_category_black.png)  | [![Legend](/assets/img/posts/2019-09-14-austin-crime/legend_cropped.png)](/assets/img/posts/2019-09-14-austin-crime/legend_cropped.png) |
 |:---:|:---:|
 | Crimes by category | Legend |
@@ -174,6 +179,7 @@ and then tile them together using ImageMagick:
 montage code=*.png -tile 3x -geometry +0+0 tile.png
 {% endhighlight %}
 
+{:.eqcol}
 | [![Visualization](/assets/img/posts/2019-09-14-austin-crime/tile_old.png)](/assets/img/posts/2019-09-14-austin-crime/tile.png)  | [![Legend](/assets/img/posts/2019-09-14-austin-crime/legend_cropped.png)](/assets/img/posts/2019-09-14-austin-crime/legend_cropped.png) |
 |:---:|:---:|
 | Crimes by category, separate | Legend |

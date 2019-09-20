@@ -93,6 +93,7 @@ convert *.png -delay 0 -loop 0 sprawl.gif
 
 results in the following:
 
+{:.eqcol}
 | [![Visualization](/assets/img/posts/2019-09-14-austin-sprawl/sprawl.gif)](/assets/img/posts/2019-09-14-austin-sprawl/sprawl.gif)  | [![Legend](/assets/img/posts/2019-09-14-austin-sprawl/colorbar.png)](/assets/img/posts/2019-09-14-austin-sprawl/colorbar.png) |
 |:---:|:---:|
 | New permits by year | Colorbar |
@@ -100,6 +101,7 @@ results in the following:
 We see that Austin's borders have expanded significantly in the last nearly 40 years, commonly referred to as urban sprawl.
 The plots using all permits tells a similar story as the plots using only new permits: below shows plots for all permits in 1981 compared to 2018:
 
+{:.eqcol}
 | [![Visualization](/assets/img/posts/2019-09-14-austin-sprawl/1981.png)](/assets/img/posts/2019-09-14-austin-sprawl/1981.png)  | [![Legend](/assets/img/posts/2019-09-14-austin-sprawl/2018.png)](/assets/img/posts/2019-09-14-austin-sprawl/2018.png) |
 |:---:|:---:|
 | All permits in 1981 | All permits in 2018 |
