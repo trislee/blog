@@ -1,0 +1,29 @@
+---
+layout: post
+title:  Fourier Polygons
+date:   2019-10-05 00:00:00 +0300
+description: Visualizations and animations of 2D Fourier transforms of polygons
+img: posts/2019-10-05-polygons/fft_512.png
+tags: [Geometry, Trippy]
+---
+So it turns out that the Fourier transforms of polygons look really cool, see below.
+
+| [![Polygons](/assets/img/posts/2019-10-05-polygons/polygon_512.png)](/assets/img/posts/2019-10-05-polygons/polygon_512.png)  | [![Polygon FFTs](/assets/img/posts/2019-10-05-polygons/fft_512.png)](/assets/img/posts/2019-10-05-polygons/fft_512.png) |
+|:---:|:---:|
+| Grid of polygons | Grid of Fourier transforms of polygons |
+
+I generated the above images by using PIL's ``ImageDraw.draw().polygon()`` function to create a 2D array of a polygon image, and computing the FFT of the array using NumPy's FFT library.
+You can find the [script][script] I used to generate this on [my GitHub][my-github]
+
+I like trippy videos, so I created an animation of the FFTs of polygons as the number of points continuously increases.
+
+<div class="myvideo">
+   <video  style="display:block; width:100%; height:auto;" autoplay controls loop="loop">
+       <source src="/assets/img/posts/2019-10-05-polygons/video.mp4" type="video/mp4" />
+       <source src="/assets/img/posts/2019-10-05-polygons/video.ogv" type="video/ogg" />
+       <source src="/assets/img/posts/2019-10-05-polygons/video.webm"  type="video/webm"  />
+   </video>
+</div>
+
+[script]: https://github.com/trislee/misc_scripts/blob/master/polygon.py
+[my-github]: https://github.com/trislee/
