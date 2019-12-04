@@ -3,7 +3,7 @@ layout: post
 title:  CFPB Analysis
 date:   2019-09-25 10:32:20 +0300
 description: Analysis and visualizations of Consumer Financial Protection Bureau complaint data
-img: posts/2019-09-25-cfpb_sankey/sankey_cover.png
+img: posts/2019-09-25-cfpb/sankey_cover.png
 tags: [Politics, CFPB]
 ---
 
