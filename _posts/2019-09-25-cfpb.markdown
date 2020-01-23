@@ -23,8 +23,6 @@ These charts probably don't look very good on mobile, sorry about that, I'm stil
 What stood out to me is the difference in monopoly power across the sectors.
 For example, in the credit reporting sector, nearly all complaints are about the three largest companies (Equifax, Experian, and Transunion), while the debt collection sector by contrast has many smaller companies, with no single dominant monopoly.
 Below is a rank-frequency plot of companies by product.
-{% include interactive/cfpb_product_rank_frequency.html %}
-
 
 
 [dataset]: https://www.consumerfinance.gov/data-research/consumer-complaints/search/?from=0&searchField=all&searchText=&size=25&sort=created_date_desc
